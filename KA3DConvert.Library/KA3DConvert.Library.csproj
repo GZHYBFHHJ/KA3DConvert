@@ -5,6 +5,9 @@
     <Nullable>disable</Nullable>
     <RootNamespace>KA3DConvert</RootNamespace>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
   </PropertyGroup>
 
 </Project>
