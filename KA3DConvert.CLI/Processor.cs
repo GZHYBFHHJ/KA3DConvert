@@ -13,7 +13,7 @@ namespace KA3DConvert.CLI
 
         public static void Convert(string input, string? output)
         {
-            using var fs = new FileStream(input, FileMode.Open, FileAccess.Read, FileShare.Read);
+            using var fs = File.OpenRead(input);
 
             if (PathIsXml(input))
             {
@@ -32,7 +32,7 @@ namespace KA3DConvert.CLI
 
                 var doc = XmlSegment.Read(fs);
 
-                using var fs1 = new FileStream(output, FileMode.Create, FileAccess.Write, FileShare.Write);
+                using var fs1 = File.Create(output);
                 doc.Save(fs1);
 
             }
