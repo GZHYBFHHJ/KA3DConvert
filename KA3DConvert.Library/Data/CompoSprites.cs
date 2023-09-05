@@ -11,7 +11,7 @@ namespace KA3DConvert.Data
         public CompoSpriteLayer(string sprite, short x, short y)
         {
             SpriteName = sprite;
-            UnkName = string.Empty;
+            SheetName = string.Empty;
             X = x;
             Y = y;
             ScaleX = 1f;
@@ -21,10 +21,10 @@ namespace KA3DConvert.Data
             FlipY = false;
         }
 
-        public CompoSpriteLayer(string sprite, string unk, short x, short y, float scaleX, float scaleY, float angle, bool flipX, bool flipY)
+        public CompoSpriteLayer(string sprite, string sheet, short x, short y, float scaleX, float scaleY, float angle, bool flipX, bool flipY)
         {
             SpriteName = sprite;
-            UnkName = unk;
+            SheetName = sheet;
             X = x;
             Y = y;
             ScaleX = scaleX;
@@ -44,7 +44,7 @@ namespace KA3DConvert.Data
 
         // RVIO
         
-        public string UnkName { get; set; } // always be empty
+        public string SheetName { get; set; } // always be empty
 
         public float ScaleX { get; set; }
 
@@ -106,7 +106,7 @@ namespace KA3DConvert.Data
                         {
                             layers.Add(new CompoSpriteLayer(
                                 sprite: br.ReadString(),
-                                unk   : br.ReadString(),
+                                sheet   : br.ReadString(),
                                 x     : br.ReadInt16(),
                                 y     : br.ReadInt16(),
                                 scaleX: br.ReadSingle(),
@@ -173,7 +173,7 @@ namespace KA3DConvert.Data
 
                         if (writer.Rvio)
                         {
-                            bw.Write(layer.UnkName);
+                            bw.Write(layer.SheetName);
 
                             bw.Write(layer.X);
                             bw.Write(layer.Y);

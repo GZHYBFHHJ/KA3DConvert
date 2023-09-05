@@ -116,7 +116,7 @@ namespace KA3DConvert.CLI
                     {
                         var sprite = doc.CreateElement("layer");
                         sprite.SetAttribute("sprite", layer.SpriteName);
-                        if (rvio) sprite.SetAttribute("unk", layer.UnkName);
+                        if (rvio) sprite.SetAttribute("sheet", layer.SheetName);
 
                         sprite.SetAttribute("x", layer.X.ToString());
                         sprite.SetAttribute("y", layer.Y.ToString());
@@ -252,7 +252,7 @@ namespace KA3DConvert.CLI
                                 else
                                 {
                                     layer = new(sprite:             sprite.Attributes?["sprite"]?.Value ?? ""      ,
-                                                unk   :             sprite.Attributes?["unk"]   ?.Value ?? ""      ,
+                                                sheet :             sprite.Attributes?["sheet"] ?.Value ?? ""      ,
                                                 x     : short.Parse(sprite.Attributes?["x"]     ?.Value ?? "0")    ,
                                                 y     : short.Parse(sprite.Attributes?["y"]     ?.Value ?? "0")    ,
                                                 scaleX: float.Parse(sprite.Attributes?["scaleX"]?.Value ?? "1")    ,
